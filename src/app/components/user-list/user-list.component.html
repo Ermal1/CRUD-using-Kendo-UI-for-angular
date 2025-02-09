@@ -1,0 +1,97 @@
+<form novalidate #myForm="ngForm">
+  <kendo-grid
+    [kendoGridTemplateEditing]="createFormGroup"
+    [kendoGridBinding]="users"
+    [pageSize]="5"
+    [pageable]="true"
+    [sortable]="true"
+    [navigable]="true"
+    (save)="update($event)"
+    (remove)="remove($event)"
+  >
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridAddCommand type="button">Add new</button>
+    </ng-template>
+    <kendo-grid-column field="firstName" title="First Name">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.firstName"
+          kendoGridFocusable
+          name="firstName"
+          class="k-textbox k-input k-rounded-md"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="lastName" title="Last name">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.lastName"
+          kendoGridFocusable
+          name="lastName"
+          class="k-textbox k-input k-rounded-md"
+         />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column
+      field="email"
+       title="Email"
+    >
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.email"
+          kendoGridFocusable
+          name="email"
+         />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column
+    field="password"
+     title="Password"
+  >
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+      <input
+        [(ngModel)]="dataItem.password"
+        kendoGridFocusable
+        name="password"
+       />
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column
+  field="roleId"
+  title="Role"
+>
+ <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+    <kendo-dropdownlist
+      [(ngModel)]="dataItem.roleId"
+      [data]="roles"
+      name="roleId"
+      kendoGridFocusable
+      [disabled]="false"
+    >
+    </kendo-dropdownlist>
+  </ng-template>
+  <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+    {{ dataItem.roleId }} 
+  </ng-template>
+</kendo-grid-column>
+    <kendo-grid-command-column title="Actions" [width]="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+        <button kendoGridEditCommand type="button" [primary]="true">
+          Edit
+        </button>
+        <button kendoGridRemoveCommand type="button">Remove</button>
+        <button
+          kendoGridSaveCommand
+          type="button"
+          [disabled]="!!myForm?.invalid"
+        >
+          {{ isNew ? "Add" : "Update" }}
+        </button>
+        <button kendoGridCancelCommand type="button">
+          {{ isNew ? "Discard changes" : "Cancel" }}
+        </button>
+      </ng-template>
+    </kendo-grid-command-column>
+  </kendo-grid>
+</form>

@@ -1,27 +1,73 @@
-# UsersManagment
+# CRUD Application for Managing Users
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+This project is a simple CRUD (Create, Read, Update, Delete) application for managing users. The application uses **Angular 16+**, **Kendo UI for Angular**, **Bootstrap**, and **HTML/CSS** for the frontend, and **JSON Server** as the mock backend to store data in local JSON files.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **CRUD Operations**: Create, Read, Update, and Delete users.
+- **Role-based Access Control**: Users are assigned roles, and access is restricted based on the role.
+- **JWT Authentication**: Secure user login and role management.
+- **Route Guards**: Ensure only authorized users can access certain routes.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Frontend**: Angular 16+, Kendo UI for Angular, Bootstrap, HTML, CSS
+- **Backend**: JSON Server (local mock backend)
+- **Authentication**: JWT
+- **Authorization**: Role-based access control using enums
+- **Routing**: Angular route guards
 
-## Build
+## Setup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Clone the repository:**
 
-## Running unit tests
+   ```bash
+   git clone https://github.com/Ermal1/CRUD-using-Kendo-UI-for-angular.git
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Install dependencies
 
-## Running end-to-end tests
+Navigate to the project directory and install the necessary dependencies:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+npm install
 
-## Further help
+## Run application:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+npm start
+
+Applicaton runs conccurrently as it is defined in package.json file:
+
+`"start": "concurrently \"ng serve\" \"json-server --watch users.json --port 3000\"" `
+
+## Kendo UI License
+
+This project uses Kendo UI for Angular. A trial license has been enrolled, and the license file is saved as kendo-ui-license.txt in the project directory.
+
+## API Endpoints
+
+The application interacts with the following JSON Server API endpoints:
+
+GET /users: Fetch all users.
+POST /users: Create a new user.
+PUT /users/:id: Update an existing user.
+DELETE /users/:id: Delete a user.
+
+## JWT Authentication
+
+The application uses JWT for authentication. To simulate user login, the login() method in the authentication service generates a token upon valid user credentials. This token is stored in local storage and is used for subsequent API requests.
+
+## Project Structure
+
+src/
+│
+├── app/
+│ ├── components/
+│ ├── guards/
+│ ├── models/
+│ ├── services/
+│ └── app.module.ts
+│
+├── assets/
+├── enum/
+├── styles.css
+└── index.html
