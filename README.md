@@ -29,11 +29,11 @@ This project is a simple CRUD (Create, Read, Update, Delete) application for man
 
 Navigate to the project directory and install the necessary dependencies:
 
-npm install
+**npm install**
 
 ## Run application:
 
-npm start
+**npm start**
 
 Applicaton runs conccurrently as it is defined in package.json file:
 
@@ -47,10 +47,10 @@ This project uses Kendo UI for Angular. A trial license has been enrolled, and t
 
 The application interacts with the following JSON Server API endpoints:
 
-GET /users: Fetch all users.
-POST /users: Create a new user.
-PUT /users/:id: Update an existing user.
-DELETE /users/:id: Delete a user.
+**GET /users: Fetch all users.**
+**POST /users: Create a new user.**
+**PUT /users/:id: Update an existing user.**
+**DELETE /users/:id: Delete a user.**
 
 ## JWT Authentication
 
@@ -58,6 +58,7 @@ The application uses JWT for authentication. To simulate user login, the login()
 
 ## Project Structure
 
+```
 src/
 │
 ├── app/
@@ -71,3 +72,4 @@ src/
 ├── enum/
 ├── styles.css
 └── index.html
+```
