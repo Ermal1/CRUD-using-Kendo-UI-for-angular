@@ -47,10 +47,10 @@ This project uses Kendo UI for Angular. A trial license has been enrolled, and t
 
 The application interacts with the following JSON Server API endpoints:
 
-**GET /users: Fetch all users.**
-**POST /users: Create a new user.**
-**PUT /users/:id: Update an existing user.**
-**DELETE /users/:id: Delete a user.**
+- **GET /users: Fetch all users.**
+- **POST /users: Create a new user.**
+- **PUT /users/:id: Update an existing user.**
+- **DELETE /users/:id: Delete a user.**
 
 ## JWT Authentication
 
