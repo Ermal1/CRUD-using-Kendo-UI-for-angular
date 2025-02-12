@@ -1,11 +1,11 @@
 {
-  "name": "users-managment",
+  "name": "bus-managment",
   "version": "0.0.0",
   "license": "MIT",
   "licenseFile": "kendo-ui-license.txt",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ng serve\" \"json-server --watch users.json --port 3000\"",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

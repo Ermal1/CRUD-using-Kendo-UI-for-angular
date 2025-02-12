@@ -1,7 +1,9 @@
+<h3>Stops</h3>
+
 <form novalidate #myForm="ngForm">
   <kendo-grid
     [kendoGridTemplateEditing]="createFormGroup"
-    [kendoGridBinding]="users"
+    [kendoGridBinding]="stops"
     [pageSize]="5"
     [pageable]="true"
     [sortable]="true"
@@ -12,52 +14,52 @@
     <ng-template kendoGridToolbarTemplate>
       <button kendoGridAddCommand type="button">Add new</button>
     </ng-template>
-    <kendo-grid-column field="firstName" title="First Name">
+    <kendo-grid-column field="code" title="Code">
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
         <input
-          [(ngModel)]="dataItem.firstName"
+          [(ngModel)]="dataItem.code"
           kendoGridFocusable
-          name="firstName"
+          name="code"
           class="k-textbox k-input k-rounded-md"
           required
         />
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="lastName" title="Last name">
+    <kendo-grid-column field="description" title="Description">
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
         <input
-          [(ngModel)]="dataItem.lastName"
+          [(ngModel)]="dataItem.description"
           kendoGridFocusable
-          name="lastName"
+          name="description"
           class="k-textbox k-input k-rounded-md"
          />
       </ng-template>
     </kendo-grid-column>
     <kendo-grid-column
-      field="email"
-       title="Email"
+      field="x"
+       title="X"
     >
       <ng-template kendoGridEditTemplate let-dataItem="dataItem">
         <input
-          [(ngModel)]="dataItem.email"
+          [(ngModel)]="dataItem.x"
           kendoGridFocusable
-          name="email"
+          name="x"
          />
       </ng-template>
     </kendo-grid-column>
     <kendo-grid-column
-    field="password"
-     title="Password"
+    field="y"
+     title="Y"
   >
     <ng-template kendoGridEditTemplate let-dataItem="dataItem">
       <input
-        [(ngModel)]="dataItem.password"
+        [(ngModel)]="dataItem.y"
         kendoGridFocusable
-        name="password"
+        name="y"
        />
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-column
+  <!-- <kendo-grid-column
   field="roleId"
   title="Role"
 >
@@ -74,7 +76,7 @@
   <ng-template kendoGridCellTemplate let-dataItem="dataItem">
     {{ dataItem.roleId }} 
   </ng-template>
-</kendo-grid-column>
+</kendo-grid-column> -->
     <kendo-grid-command-column title="Actions" [width]="220">
       <ng-template kendoGridCellTemplate let-isNew="isNew">
         <button kendoGridEditCommand type="button" [primary]="true">
@@ -95,3 +97,4 @@
     </kendo-grid-command-column>
   </kendo-grid>
 </form>
+ 

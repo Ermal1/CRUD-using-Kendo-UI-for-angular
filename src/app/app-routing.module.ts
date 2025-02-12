@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserListComponent } from './components/user-list/user-list.component';
-import { authGuard } from './guards/auth.guard';
+import { StopComponent } from './components/stop/stop.component';
+import { JourneyComponent } from './components/journey/journey.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'users', pathMatch: 'full' },
-  { path: 'users', component: UserListComponent, canActivate: [authGuard] },
+  { path: '', redirectTo: '/journeys', pathMatch: 'full' }, // Default route
+  { path: 'journeys', component: JourneyComponent },
+  { path: 'stops', component: StopComponent },
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

@@ -1,0 +1,61 @@
+/* General Page Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+header {
+  background-color: #2c3e50; /* Dark Blue */
+  padding: 15px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Navigation Links */
+.nav-left {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.nav-left a:hover {
+  background: #1abc9c; /* Light Green */
+}
+
+.nav-left a.active {
+  background: #16a085; /* Darker Green */
+  font-weight: bold;
+}
+
+/* Centered Title */
+.nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+main {
+  padding: 20px;
+  
+}

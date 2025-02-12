@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { StopComponent } from './components/stop/stop.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GridModule } from '@progress/kendo-angular-grid';
@@ -11,9 +11,10 @@ import { CommonModule } from '@angular/common';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { JourneyComponent } from './components/journey/journey.component';
 
 @NgModule({
-  declarations: [AppComponent, UserListComponent],
+  declarations: [AppComponent, StopComponent, JourneyComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

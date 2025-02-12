@@ -1,0 +1,185 @@
+<!-- <h3>Journeys</h3>
+
+<form novalidate #myForm="ngForm">
+  <kendo-grid
+    [kendoGridTemplateEditing]="createJourneyFormGroup"
+    [kendoGridBinding]="journeys"
+    [pageSize]="5"
+    [pageable]="true"
+    [sortable]="true"
+    [navigable]="true"
+    (save)="update($event)"
+    (remove)="remove($event)"
+  >
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridAddCommand type="button">Add new</button>
+    </ng-template>
+    <kendo-grid-column field="code" title="Code">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.code"
+          kendoGridFocusable
+          name="code"
+          class="k-textbox k-input k-rounded-md"
+          required
+        />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="description" title="Description">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input
+          [(ngModel)]="dataItem.description"
+          kendoGridFocusable
+          name="description"
+          class="k-textbox k-input k-rounded-md"
+         />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column
+    field="order"
+     title="Order"
+  >
+    <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+      <input
+        [(ngModel)]="dataItem.order"
+        kendoGridFocusable
+        name="order"
+       />
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column
+  field="Id"
+  title="Stop"
+>
+ <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+    <kendo-dropdownlist
+      [(ngModel)]="dataItem.Id"
+      [data]="stops"
+      name="Id"
+      kendoGridFocusable
+      [disabled]="false"
+    >
+    </kendo-dropdownlist>
+  </ng-template>
+  <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+    {{ dataItem.Id }} 
+  </ng-template>
+</kendo-grid-column>
+    <kendo-grid-command-column title="Actions" [width]="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+        <button kendoGridEditCommand type="button" [primary]="true">
+          Edit
+        </button>
+        <button kendoGridRemoveCommand type="button">Remove</button>
+        <button
+          kendoGridSaveCommand
+          type="button"
+          [disabled]="!!myForm?.invalid"
+        >
+          {{ isNew ? "Add" : "Update" }}
+        </button>
+        <button kendoGridCancelCommand type="button">
+          {{ isNew ? "Discard changes" : "Cancel" }}
+        </button>
+      </ng-template>
+    </kendo-grid-command-column>
+  </kendo-grid>
+</form>
+  -->
+  <h3>Journeys</h3>
+
+  <form novalidate #journeyForm="ngForm" (ngSubmit)="onSubmit(journeyForm)">
+    <kendo-grid
+      [kendoGridTemplateEditing]="createJourneyFormGroup"
+      [kendoGridBinding]="journeys"
+      [pageSize]="5"
+      [pageable]="true"
+      [sortable]="true"
+      [navigable]="true"
+      (save)="update($event)"
+      (remove)="remove($event)"
+    >
+      <ng-template kendoGridToolbarTemplate>
+        <button kendoGridAddCommand type="button">Add new</button>
+      </ng-template>
+  
+      <!-- Code Column -->
+      <kendo-grid-column field="code" title="Code">
+        <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+          <input
+            [(ngModel)]="dataItem.code"
+            kendoGridFocusable
+            name="code"
+            class="k-textbox k-input k-rounded-md"
+            required
+          />
+        </ng-template>
+      </kendo-grid-column>
+  
+      <!-- Description Column -->
+      <kendo-grid-column field="description" title="Description">
+        <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+          <input
+            [(ngModel)]="dataItem.description"
+            kendoGridFocusable
+            name="description"
+            class="k-textbox k-input k-rounded-md"
+          />
+        </ng-template>
+      </kendo-grid-column>
+  
+      <!-- JourneyStop Order Column -->
+      <kendo-grid-column field="order" title="Order">
+        <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+          <input
+            [(ngModel)]="dataItem.order"
+            type="number"
+            kendoGridFocusable
+            name="order"
+            class="k-textbox k-input k-rounded-md"
+            [min]="1"
+          />
+        </ng-template>
+      </kendo-grid-column>
+  
+      <!-- JourneyStop Stop Column -->
+      <kendo-grid-column field="stopId" title="Stop">
+        <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+          <kendo-dropdownlist
+            [(ngModel)]="dataItem.stopId"
+            [data]="stops"
+            name="stopId"
+            kendoGridFocusable
+            textField="code"
+            valueField="id"
+          >
+          </kendo-dropdownlist>
+        </ng-template>
+        <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+          {{ getStopCode(dataItem) }}
+        </ng-template>
+      </kendo-grid-column>
+  
+      <!-- Actions -->
+      <kendo-grid-command-column title="Actions" [width]="220">
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+          <button kendoGridEditCommand type="button" [primary]="true">
+            Edit
+          </button>
+          <button kendoGridRemoveCommand type="button">Remove</button>
+          <button
+            kendoGridSaveCommand
+            type="button"
+            [disabled]="!!journeyForm?.invalid"
+          >
+            {{ isNew ? "Add" : "Update" }}
+          </button>
+          <button kendoGridCancelCommand type="button">
+            {{ isNew ? "Discard changes" : "Cancel" }}
+          </button>
+        </ng-template>
+      </kendo-grid-command-column>
+    </kendo-grid>
+  </form>
+  
+  
